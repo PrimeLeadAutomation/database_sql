@@ -43,6 +43,7 @@ ALTER TABLE `match_empresa_lead`
   ADD COLUMN `comportamento` TINYINT UNSIGNED NULL,
   ADD COLUMN `nota_origem` TINYINT UNSIGNED NULL,
   ADD COLUMN `sinais` JSON NULL,
+  ADD COLUMN `fechado_em` DATETIME(6) NULL,
   ADD COLUMN `atualizado_em` DATETIME(6) NULL,
   ADD KEY `ix_match_responsavel_empresa` (`fk_usuario_responsavel`, `fk_empresa`),
   ADD CONSTRAINT `fk_match_responsavel_mesma_empresa`

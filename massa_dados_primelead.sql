@@ -43,10 +43,10 @@ INSERT INTO `usuario`
      `meta`, `fechados`, `taxa_conversao`, `ativo`, `onboarding_concluido_em`,
      `onboarding_pulado`, `preferencias`)
 VALUES
-    (1, 'ricardo.bennet@primelead.local', 'Senha@123', 'Ricardo Bennet', 'gestor', 1,
+     (1, 'ricardo.bennet@primelead.local', '$2a$10$layKoOeOhucPpniAdeAzle6UO91CtLXQPzfkC0wD0W3K8t6w/9wO.', 'Ricardo Bennet', 'gestor', 1,
      '#2563EB', 30, 12, 0.4000, TRUE, '2026-01-10 08:30:00.000000', FALSE,
      JSON_OBJECT('fit', TRUE, 'engajamento', TRUE, 'comportamento', TRUE, 'origem', TRUE)),
-    (2, 'maria.fernandes@primelead.local', 'Senha@123', 'Maria Fernandes', 'analista', 1,
+     (2, 'maria.fernandes@primelead.local', '$2a$10$layKoOeOhucPpniAdeAzle6UO91CtLXQPzfkC0wD0W3K8t6w/9wO.', 'Maria Fernandes', 'analista', 1,
      '#7C3AED', 20, 7, 0.3500, TRUE, '2026-01-11 09:00:00.000000', FALSE,
      JSON_OBJECT('fit', TRUE, 'engajamento', TRUE, 'comportamento', FALSE, 'origem', TRUE))
 ON DUPLICATE KEY UPDATE
@@ -185,13 +185,13 @@ INSERT INTO `match_empresa_lead`
      `atualizado_em`)
 VALUES
     (1, 1, 1, 86, 1, 'score-v1', '2026-01-20 10:15:00.000000', 1, 24000.00, 'em_negociacao', 92, 78, 84, 80,
-     JSON_OBJECT('ultimo_evento', 'respondeu_email', 'paginas_visitadas', 5),
+     JSON_ARRAY('Respondeu e-mail', 'Visitou 5 paginas'),
      '2026-01-20 10:15:00.000000'),
     (2, 1, 2, 63, 1, 'score-v1', '2026-01-20 11:30:00.000000', 2, 15000.00, 'qualificado', 70, 61, 58, 65,
-     JSON_OBJECT('ultimo_evento', 'visitou_site', 'paginas_visitadas', 3),
+     JSON_ARRAY('Visitou o site', 'Visitou 3 paginas'),
      '2026-01-20 11:30:00.000000'),
     (3, 1, 3, 38, 1, 'score-v1', '2026-01-20 13:45:00.000000', 2, 42000.00, 'novo', 45, 32, 40, 35,
-     JSON_OBJECT('ultimo_evento', 'origem_linkedin', 'paginas_visitadas', 1),
+     JSON_ARRAY('Origem LinkedIn', 'Visitou 1 pagina'),
      '2026-01-20 13:45:00.000000')
 ON DUPLICATE KEY UPDATE
     `fk_empresa` = VALUES(`fk_empresa`),
@@ -231,9 +231,7 @@ VALUES
     (1, 80, 60,
      JSON_ARRAY('Tecnologia', 'Servicos contabeis', 'Comercio varejista'),
      JSON_ARRAY('pequeno', 'medio'), 10000.00,
-     JSON_OBJECT('limite_ruim', 0, 'limite_bom', 60, 'limite_otimo', 80,
-                 'pesos', JSON_OBJECT('fit', 35, 'engajamento', 25,
-                                      'comportamento', 25, 'origem', 15)))
+     JSON_ARRAY('Inovacao', 'Decisao agil', 'Visao de longo prazo'))
 ON DUPLICATE KEY UPDATE
     `limite_otimo` = VALUES(`limite_otimo`),
     `limite_bom` = VALUES(`limite_bom`),
